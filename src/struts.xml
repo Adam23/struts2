@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="use" class="com.csg.struts2.action.UserAction"></action>
+		<action name="reg" class="com.csg.struts2.action.UserAction" method="register">
+			<result name="success" type="redirect">/list.jsp</result>
+		</action>
+	</package>
+</struts>
+        
