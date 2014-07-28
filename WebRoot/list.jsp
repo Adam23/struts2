@@ -38,7 +38,7 @@
 		$("#tabUserList").jqGrid({
 			width : 700,
 			height : 300,
-			url : "users/userlist.action" , 
+			url : "getlist.action" , 
 			datatype : "json" ,
 			colNames :["姓名" , "性别" , "籍贯" , "身份证号" , "生日" , "照片"] ,
 			colModel :[
@@ -51,19 +51,7 @@
 			],
 			pager : "#pager",
 			rowNum : 5,
-			rowList : [5,10,20,50,100] , 
-			gridComplete: function(){
-				var ids = $("#tabUserList").jqGrid('getDataIDs');
-				for(var i=0;i < ids.length;i++){
-					var id = ids[i];
-					var rec = $("#tabUserList").jqGrid("getRowData" , id);
-					//console.info(rec);
-					aView = "<a href='#' onclick='showIdPhotos(\"" + rec.filename + "\")'>查看</a>&nbsp;&nbsp;&nbsp;"; 
-					aDown= "<a href='#'  onclick='down(\"" + rec.filename + "\")'>下载</a>"; 
-					console.info(aView + aDown);
-					jQuery("#tabUserList").jqGrid('setRowData',id,{filename:aView + aDown});
-				}	
-			}			
+			rowList : [5,10,20,50,100] 
 		})
 	})
 </script>

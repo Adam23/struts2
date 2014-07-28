@@ -82,7 +82,7 @@
 				at : "center center"
 			}
 		});
-		
+		/*
 		$("#nativeplace").autocomplete({
 			source : "area" , 
 			select : function(event , rec){
@@ -90,7 +90,7 @@
 				//val()不写参数代表获取，设置一个参数代表赋值
 				$("#nativeplaceid").val(rec.item.id)
 			}
-		});
+		});*/
 		
 		$("#birthday").datepicker();
 		$("*[title]").tooltip({
@@ -140,12 +140,12 @@
 					<input type = "text" name = "birthday" id = "birthday" readonly = "readonly"  title = "请选择生日"/></td>
 				</tr>
 				
-				<tr>
+				<!-- tr>
 					<td style = "width : 20%">身份证照片:</td>
 					<td style = "width : 80%">
 						<input type = "file" name = "idphoto" id = "idphoto"   title = "请选择身份证照片"/>
 					</td>
-				</tr>
+				</tr -->
 			</table>
 		</form>
 	</div>

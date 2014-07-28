@@ -8,6 +8,7 @@
 		<action name="reg" class="com.csg.struts2.action.UserAction" method="register">
 			<result name="success" type="redirect">/list.jsp</result>
 		</action>
+		<action name="getlist" class="com.csg.struts2.action.UserAction" method="getList"></action>
 	</package>
 </struts>
         
