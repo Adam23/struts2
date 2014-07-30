@@ -61,6 +61,7 @@
 			<br><br>
 			<ul>
 				<li><span>2014-7-25：</span><a href="register.jsp">struts2入门</a></li>
+				<li><span>2014-7-29：</span><a href="forward_login_jsp.action">系统安全策略与Struts2数据类型转换</a></li>
 			</ul>
     		
     	</div>
