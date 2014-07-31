@@ -3,16 +3,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'login.jsp' starting page</title>
-
+    <title>登录</title>
   </head>
   
   <body>
   ${errMsg}<br/>
-    <form action="login.action" method="post">
-    	<span>用户名</span><input name="username" type="text">
-    	<span>密码</span><input name="password" type="password">
-    	<input type="submit" value="登录">
-    </form>
+	<form name = "login" method = "post" action = "login.action"> 
+		用户名：<input name = "username" type="text"/>
+		密码：<input name = "password" type = "password"/>
+		<input type="submit" value = "登录"/>
+	</form>
   </body>
 </html>

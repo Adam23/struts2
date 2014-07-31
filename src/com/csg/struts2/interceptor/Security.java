@@ -3,6 +3,8 @@ package com.csg.struts2.interceptor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionInvocation;
@@ -16,39 +18,41 @@ public class Security extends AbstractInterceptor{
 		String uri = ServletActionContext.getRequest().getRequestURI();
 		String context = ServletActionContext.getServletContext().getContextPath();
 		
-		for(String exl:excludeList){
-			String fullPath = context + exl;
+		for(String ex : excludeList){
+			String fullPath = context + ex;
+			System.out.println(fullPath);
+			System.out.println(uri);
 			if(fullPath.equalsIgnoreCase(uri)){
 				String result = invocation.invoke();
-				System.out.println("result:"+result);
+				System.out.println("Result:" + result);
 				return result;
 			}
 		}
 		
-		String name = (String) ServletActionContext.getRequest().getSession().getAttribute("loginuser");
-		if(name == null){
-			ServletActionContext.getRequest().getSession().setAttribute("errMsg", "您未登录或登录超时，请重新登录");
+		String username = (String)ServletActionContext.getRequest().getSession().getAttribute("loginuser");
+		if(username == null){
+			ServletActionContext.getRequest().getSession().setAttribute("errMsg", "用户未登录或回话超时，请重新登录");
 			return "login";
 		}else{
+			ServletActionContext.getRequest().getSession().removeAttribute("errMsg");	
 			return invocation.invoke();
 		}
-		
+	}
+	
+	public void init() {
+		System.out.println("。。。。SecurityInterceptor");
 	}
 
 	public String getExclude() {
 		return exclude;
 	}
 
+
 	public void setExclude(String exclude) {
 		this.exclude = exclude;
-		String[] list = exclude.split(",");
-		for(String li:list){
-			excludeList.add(li);
+		String[] exs = exclude.split(",");
+		for(String ex : exs){
+			excludeList.add(ex);
 		}
-	}
-
-	@Override
-	public void init() {
-		System.out.println("在准备Security……");
 	}
 }

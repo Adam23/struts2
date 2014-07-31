@@ -6,7 +6,7 @@
 	<package name="common"  extends="struts-default" namespace="/">
 		<interceptors>
 			<interceptor name="security" class="com.csg.struts2.interceptor.Security">
-				<param name="exclude">/forward_login_jsp.action,login.atcion</param>
+				<param name="exclude">/forward_login_jsp.action,/login.action</param>
 			</interceptor>
 			<interceptor-stack name="customSecurity">
 				<interceptor-ref name="security"></interceptor-ref>
@@ -20,8 +20,8 @@
 			<result name="login" type="redirect">/forward_login_jsp.action</result>
 		</global-results>
 		
-		<action name="forward_*" class="com.csg.struts2.action.ForwardAction" method="forward" >
-			<result name="success" >/WEB-INF/jsp${target}</result>
+		<action name="forward_*" class = "com.csg.struts2.action.ForwardAction" method="forward">
+			<result name = "success">/WEB-INF/jsp${target}</result>
 		</action>
 	</package>
 
@@ -33,11 +33,10 @@
 		<action name="getlist" class="com.csg.struts2.action.UserAction" method="getList"></action>
 	</package>
 	
-	<package name="login" extends="common" namespace="/" >
-	
+	<package name="login" extends="common" namespace="/">
 		<action name="login" class="com.csg.struts2.action.LoginAction" method="login">
 			<result name="success" type="redirect">/forward_yes_jsp.action</result>
-			<result name="input" type="redirect">/forward_login_jsp.action</result>
+			<result name="input" type = "redirect">/forward_login_jsp.action</result>
 		</action>
 		<action name="tologin" class="com.csg.struts2.action.LoginAction" method="toLogin">
 			<result name="success" >/WEB-INF/jsp/login.jsp</result>
